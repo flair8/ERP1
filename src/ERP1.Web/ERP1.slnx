@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="ERP1.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="../../tests/ERP1.Tests/ERP1.Tests.csproj" Id="4e777e2d-436b-47ee-82fc-455313b0ba89" />
+  </Folder>
+</Solution>
