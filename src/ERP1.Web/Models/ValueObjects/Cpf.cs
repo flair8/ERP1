@@ -1,8 +1,8 @@
 ﻿namespace ERP1.Models.ValueObjects
 {
-    public class Document
+    public class Cpf
     {
-        public Document(string number)
+        public Cpf(string number)
         {
             Number = number;
         }

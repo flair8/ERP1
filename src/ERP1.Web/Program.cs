@@ -1,6 +1,9 @@
+using ERP1.Application.Customer;
 using ERP1.Configuration;
 using ERP1.Data;
 using ERP1.Models;
+using ERP1.Validators.Customer;
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>();
+builder.Services.AddScoped<CreateCustomerCommandHandler>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

@@ -5,7 +5,7 @@ namespace ERP1.Models
 {
     public class Customer : Entity
     {
-        public Customer(string fullName, Document document, Email email, Phone phone)
+        public Customer(string fullName, Cpf document, Email email, Phone phone)
         {
             FullName = fullName;
             Document = document;
@@ -15,7 +15,7 @@ namespace ERP1.Models
         }
 
         public string FullName { get; private set; }
-        public Document Document {  get; private set; }
+        public Cpf Document {  get; private set; }
 
         public Email Email { get; private set; }
         public Phone Phone {  get; private set; }
