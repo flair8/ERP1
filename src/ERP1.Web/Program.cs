@@ -1,6 +1,7 @@
 using ERP1.Application.Customer;
 using ERP1.Configuration;
 using ERP1.Data;
+using ERP1.Infrastructure;
 using ERP1.Models;
 using ERP1.Validators.Customer;
 using FluentValidation;
@@ -13,14 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<IEmailSender, EmailSender>();
-builder.Services.AddValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>();
-builder.Services.AddScoped<CreateCustomerCommandHandler>();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
-});
+builder.Services.
+    AddDependencies()
+    .AddValidators()
+    .AddInfrastructure(builder.Configuration);
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()

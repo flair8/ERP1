@@ -17,7 +17,5 @@ namespace ERP1.Controllers
         {
             return View();
         }
-
-       
     }
 }

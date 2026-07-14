@@ -155,12 +155,12 @@
       var profileNameEls = document.querySelectorAll(".profile-name");
       var profileAvatarEls = document.querySelectorAll(".profile-button .avatar-img, .profile-button img");
 
-      if (sidebarNameEl) sidebarNameEl.textContent = user.name;
-      if (sidebarWorkspaceEl) sidebarWorkspaceEl.textContent = user.workspace;
-      if (sidebarAvatar && user.avatar) { sidebarAvatar.src = user.avatar; sidebarAvatar.alt = user.name; }
+      // if (sidebarNameEl) sidebarNameEl.textContent = user.name;
+      // if (sidebarWorkspaceEl) sidebarWorkspaceEl.textContent = user.workspace;
+      // if (sidebarAvatar && user.avatar) { sidebarAvatar.src = user.avatar; sidebarAvatar.alt = user.name; }
 
-      Array.prototype.forEach.call(profileNameEls, function (el) { el.textContent = user.name; });
-      Array.prototype.forEach.call(profileAvatarEls, function (img) { if (user.avatar) img.src = user.avatar; if (user.name) img.alt = user.name; });
+      //Array.prototype.forEach.call(profileNameEls, function (el) { el.textContent = user.name; });
+      //Array.prototype.forEach.call(profileAvatarEls, function (img) { if (user.avatar) img.src = user.avatar; if (user.name) img.alt = user.name; });
     }
 
     initUserProfile();
