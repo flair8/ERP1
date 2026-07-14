@@ -71,6 +71,11 @@ public class RegisterModel : PageModel
     public class InputModel
     {
         [Required]
+        [StringLength(100, ErrorMessage = "Name cannot exceed 100 characters.")]
+        [Display(Name = "Name")]
+        public string Name { get; set; } = default!;
+
+        [Required]
         [MaxLength(14)]
         [Display(Name = "Document")]
         public string Document { get; set; } = default!;
@@ -128,7 +133,7 @@ public class RegisterModel : PageModel
             var user = CreateUser();
             // Validar o CPF
             user.Document = Input.Document;
-
+            user.Name = Input.Name;
             await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
             await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
             var result = await _userManager.CreateAsync(user, Input.Password);

@@ -7,7 +7,7 @@
             Number = number;  
         }
 
-        public string Number { get; set; }
+        public string Number { get; private set; }
 
         public override string ToString()
         {
