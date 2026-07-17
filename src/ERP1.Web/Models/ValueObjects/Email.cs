@@ -2,6 +2,7 @@
 {
     public class Email
     {
+        private Email() { }
         public Email(string address)
         {
             Address = address;

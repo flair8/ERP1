@@ -5,33 +5,89 @@
 
 <div class="text-center">
     <h1 class="display-4">Página do customer</h1>
-    <form asp-controller="Customer" asp-action="Create" method="post">
-
-        <div>
-            <label>Nome</label>
-            <input asp-for="FullName" />
-            <span asp-validation-for="FullName"></span>
-        </div>
-
-        <div>
-            <label>Email</label>
-            <input asp-for="Email" />
-            <span asp-validation-for="Email"></span>
-        </div>
-
-        <div>
-            <label>Telefone</label>
-            <input asp-for="Phone" />
-            <span asp-validation-for="Phone"></span>
-        </div>
-
-        <div>
-            <label>Documento</label>
-            <input asp-for="Document" />
-            <span asp-validation-for="Document"></span>
-        </div>
-
-        <button type="submit">Salvar</button>
-
-    </form>
+    <table class="table align-middle mb-0">
+        <thead><tr><th scope="col">User</th><th scope="col">Role</th><th scope="col">Team</th><th scope="col">Status</th><th scope="col">Joined</th><th scope="col" class="text-end">Action</th></tr></thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-2">
+                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-1.jpg" alt="Sarah Ahmed">
+                        <div>
+                            <p class="fw-semibold mb-0">Sarah Ahmed</p>
+                            <p class="text-muted small mb-0">sarah@example.com</p>
+                        </div>
+                    </div>
+                </td>
+                <td>Admin</td>
+                <td>Operations</td>
+                <td><span class="badge text-bg-success">Active</span></td>
+                <td>Jan 12, 2026</td>
+                <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-2">
+                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-2.jpg" alt="Rafi Khan">
+                        <div>
+                            <p class="fw-semibold mb-0">Rafi Khan</p>
+                            <p class="text-muted small mb-0">rafi@example.com</p>
+                        </div>
+                    </div>
+                </td>
+                <td>Manager</td>
+                <td>Sales</td>
+                <td><span class="badge text-bg-success">Active</span></td>
+                <td>Feb 03, 2026</td>
+                <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-2">
+                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-3.jpg" alt="Nadia Islam">
+                        <div>
+                            <p class="fw-semibold mb-0">Nadia Islam</p>
+                            <p class="text-muted small mb-0">nadia@example.com</p>
+                        </div>
+                    </div>
+                </td>
+                <td>Editor</td>
+                <td>Content</td>
+                <td><span class="badge text-bg-warning">Pending</span></td>
+                <td>Mar 18, 2026</td>
+                <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-2">
+                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-4.jpg" alt="Mina Torres">
+                        <div>
+                            <p class="fw-semibold mb-0">Mina Torres</p>
+                            <p class="text-muted small mb-0">mina@example.com</p>
+                        </div>
+                    </div>
+                </td>
+                <td>Viewer</td>
+                <td>Finance</td>
+                <td><span class="badge text-bg-secondary">Suspended</span></td>
+                <td>Apr 07, 2026</td>
+                <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-2">
+                        <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-5.jpg" alt="Jon Oliver">
+                        <div>
+                            <p class="fw-semibold mb-0">Jon Oliver</p>
+                            <p class="text-muted small mb-0">jon@example.com</p>
+                        </div>
+                    </div>
+                </td>
+                <td>Analyst</td>
+                <td>Data</td>
+                <td><span class="badge text-bg-success">Active</span></td>
+                <td>Apr 22, 2026</td>
+                <td class="text-end"><a class="btn btn-light btn-sm" href="user-details.html">View</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

@@ -1,5 +1,7 @@
 ﻿using ERP1.Application.Customer;
 using ERP1.Configuration;
+using ERP1.Repositories;
+using ERP1.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace ERP1.Infrastructure
@@ -11,6 +13,8 @@ namespace ERP1.Infrastructure
         {
             services.AddSingleton<IEmailSender, EmailSender>();
             services.AddScoped<CreateCustomerCommandHandler>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
     }

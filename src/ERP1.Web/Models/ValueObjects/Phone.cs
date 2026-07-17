@@ -2,6 +2,7 @@
 {
     public class Phone
     {
+        private Phone() { }
         public Phone(string number) 
         { 
             Number = number;  
