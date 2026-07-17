@@ -22,6 +22,12 @@ namespace ERP1.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View(new CreateCustomerCommand());
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateCustomerCommand command)
         {
@@ -40,7 +46,6 @@ namespace ERP1.Controllers
             // Passar o handler
             return RedirectToAction(nameof(Index));
         }
-
 
     }
 }

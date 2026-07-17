@@ -1,9 +1,11 @@
 ﻿using ERP1.Models.Enums;
 
-namespace ERP1.Models.ValueObjects
+namespace ERP1.Models
 {
-    public class Address
+    public class Address : Entity
     {
+        private Address() { }
+
         public Address(string street,
             string city,
             string number,
@@ -34,6 +36,9 @@ namespace ERP1.Models.ValueObjects
         public string Country { get; private set; }
         public string Complement {  get; private set; }
         public EAdressType AdressType { get; private set; }
+
+        public int CustomerId { get; private set; }
+        public Customer Customer { get; private set; }
 
         public override string ToString()
         {

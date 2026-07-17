@@ -1,17 +1,25 @@
-﻿using ERP1.Models;
+﻿using ERP1.Data;
+using ERP1.Models;
 using ERP1.Models.ValueObjects;
+using ERP1.Repositories.Interfaces;
 using FluentValidation;
-using System.Reflection.Metadata;
 
 namespace ERP1.Application.Customer
 {
     public class CreateCustomerCommandHandler
     {
+        private readonly ICustomerRepository _customerRepository;
         private readonly IValidator<CreateCustomerCommand> _validator;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCustomerCommandHandler(IValidator<CreateCustomerCommand> validator)
+        public CreateCustomerCommandHandler(
+            IValidator<CreateCustomerCommand> validator,
+            ICustomerRepository customerRepository,
+            IUnitOfWork unitOfWork)
         {
             _validator = validator;
+            _customerRepository = customerRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<Result> Handle(CreateCustomerCommand command)
@@ -37,7 +45,8 @@ namespace ERP1.Application.Customer
                 phone: new Phone(command.Phone)
             );
 
-            // UnitOfWork
+            await _customerRepository.AddAsync(customer);
+            await _unitOfWork.CommitAsync();
 
             return Result.Success();
         }

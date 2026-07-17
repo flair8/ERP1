@@ -1,0 +1,37 @@
+﻿@model ERP1.Application.Customer.CreateCustomerCommand
+@{
+    ViewData["Title"] = "Create Customer";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Página do customer</h1>
+    <form asp-controller="Customer" asp-action="Create" method="post">
+
+        <div>
+            <label>Nome</label>
+            <input asp-for="FullName" />
+            <span asp-validation-for="FullName"></span>
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div>
+            <label>Telefone</label>
+            <input asp-for="Phone" />
+            <span asp-validation-for="Phone"></span>
+        </div>
+
+        <div>
+            <label>Documento</label>
+            <input asp-for="Document" />
+            <span asp-validation-for="Document"></span>
+        </div>
+
+        <button type="submit">Salvar</button>
+
+    </form>
+</div>
