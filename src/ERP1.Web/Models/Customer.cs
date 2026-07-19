@@ -5,6 +5,8 @@ namespace ERP1.Models
 {
     public class Customer : Entity
     {
+        private readonly List<Address> _addresses;
+
         private Customer() { }
 
         public Customer(string fullName, Cpf document, Email email, Phone phone)
@@ -13,7 +15,7 @@ namespace ERP1.Models
             Document = document;
             Email = email;
             Phone = phone;
-            Addresses = new List<Address>();
+            _addresses = new List<Address>();
         }
         
         public string FullName { get; private set; }
@@ -21,11 +23,11 @@ namespace ERP1.Models
 
         public Email Email { get; private set; }
         public Phone Phone {  get; private set; }
-        public ICollection<Address> Addresses {  get; private set; }
+        public ICollection<Address> Addresses => _addresses.AsReadOnly();
 
         public void AddAddress(Address address)
         {
-            //_addresses.Add(address);
+            _addresses.Add(address);
         }
 
         public override string ToString()

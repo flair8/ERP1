@@ -9,12 +9,19 @@ namespace ERP1.Models.ValueObjects
         public Cpf(string number)
         {
             Number = Regex.Replace(number, @"\D", "");
-            // add later notification
-            if (Number.Length != 11)
-                throw new ArgumentException("CPF inválido");
         }
 
         public string Number {  get; private set; }
+
+        public static bool IsValid(string cpf)
+        {
+            if (string.IsNullOrWhiteSpace(cpf))
+                return false;
+
+            cpf = Regex.Replace(cpf, @"\D", "");
+
+            return cpf.Length == 11;
+        }
 
         public override string ToString()
         {

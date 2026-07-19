@@ -45,6 +45,20 @@ namespace ERP1.Application.Customer
                 phone: new Phone(command.Phone)
             );
 
+            foreach (var addressCommand in command.Addresses)
+            {
+                var address = new Address(
+                    addressCommand.Street,
+                    addressCommand.City,
+                    addressCommand.Number,
+                    addressCommand.ZipCode,
+                    addressCommand.District,
+                    addressCommand.State,
+                    addressCommand.Country, addressCommand.Complement, addressCommand.AdressType);
+
+                customer.AddAddress(address);
+            }
+
             await _customerRepository.AddAsync(customer);
             await _unitOfWork.CommitAsync();
 

@@ -1,4 +1,5 @@
 ﻿using ERP1.Application.Customer;
+using ERP1.Models.ValueObjects;
 using FluentValidation;
 
 namespace ERP1.Validators.Customer
@@ -19,9 +20,12 @@ namespace ERP1.Validators.Customer
             RuleFor(x => x.Phone)
                 .NotEmpty().WithMessage("Phone is required.");
 
+            RuleFor(x => x.Addresses)
+                .NotEmpty().WithMessage("At least one address is required.");
+            
             RuleFor(x => x.Document)
+                .Must(Cpf.IsValid).WithMessage("Document must be valid.")
                 .NotEmpty().WithMessage("Document is required.");
-
         }
     }
 }
